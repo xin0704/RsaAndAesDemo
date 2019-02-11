@@ -26,8 +26,6 @@ public class CustomResponseInterceptor implements Interceptor {
         MyApplication.editor
                 .putString(Constants.AES_SP_KEY, response.headers().get("SECRET"))
                 .commit();
-        // 打印响应头
-        Log.d("=======", response.headers().get("SECRET"));
         // 得到Response  对它的response 进行包装  用我们自己定义的DownLoadResponseBody
         return response;
     }
