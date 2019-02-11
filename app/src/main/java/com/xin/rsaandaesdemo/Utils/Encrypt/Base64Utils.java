@@ -1,4 +1,4 @@
-package com.xin.rsaandaesdemo.Utils;
+package com.xin.rsaandaesdemo.Utils.Encrypt;
 
 import java.io.UnsupportedEncodingException;
 

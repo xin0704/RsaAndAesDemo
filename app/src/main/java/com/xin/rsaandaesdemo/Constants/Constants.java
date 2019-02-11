@@ -12,6 +12,8 @@ public class Constants {
 
     public final static String MEDIA_TYPE = "application/json; charset=utf-8";
 
+    public final static String AES_SP_KEY = "AES_SP_KEY";
+
     //这是客户端用来加密、解密的公钥  私钥放在后台（后台用私钥加密、解密数据）
     public static final String PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp+bR2Zl/vXJD3X7s2dZF\n" +
             "qitsz7GEvMBiGt5LIVOXcD7CSzvyq+pzWBSbWUgHTSHqCNw6f2ikdqZM67yRf5bI\n" +

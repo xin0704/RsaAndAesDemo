@@ -4,12 +4,13 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
+
 import com.xin.rsaandaesdemo.Base.IBasePresenter;
 import com.xin.rsaandaesdemo.Bean.User;
 import com.xin.rsaandaesdemo.Constants.Urls;
+import com.xin.rsaandaesdemo.Utils.Encrypt.Aes.Aes;
 import com.xin.rsaandaesdemo.Utils.Http.CustomSubscriber;
 import com.xin.rsaandaesdemo.Utils.Http.ServiceFactory;
-import com.xin.rsaandaesdemo.Utils.Rsa;
 
 import okhttp3.RequestBody;
 import rx.android.schedulers.AndroidSchedulers;
@@ -37,8 +38,16 @@ public class LoginPresenter extends IBasePresenter<LoginView> implements LoginIn
 
         RequestBody body = null;
 
+//        try {
+//            body = Rsa.encode(new Gson().toJson(user));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            view.showToast("数据加密失败");
+//            return;
+//        }
+
         try {
-            body = Rsa.encode(new Gson().toJson(user));
+            body = Aes.encode(new Gson().toJson(user));
         } catch (Exception e) {
             e.printStackTrace();
             view.showToast("数据加密失败");

@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by admin on 2018/4/19.
@@ -35,7 +34,12 @@ public class ServiceFactory {
         OkHttpClient client = new OkHttpClient.Builder().
                 connectTimeout(60, TimeUnit.SECONDS).
                 readTimeout(60, TimeUnit.SECONDS).
-                writeTimeout(60, TimeUnit.SECONDS).build();
+                writeTimeout(60, TimeUnit.SECONDS)
+                //添加拦截器 在此拦截器中可添加header
+                .addInterceptor(new CustomRequestInterceptor())
+                //添加拦截器 在此拦截器中可获取header
+                .addInterceptor(new CustomResponseInterceptor())
+                .build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)

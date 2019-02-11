@@ -1,4 +1,6 @@
-package com.xin.rsaandaesdemo.Utils;
+package com.xin.rsaandaesdemo.Utils.Encrypt.Rsa;
+
+import com.xin.rsaandaesdemo.Utils.Encrypt.Base64Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -3,8 +3,7 @@ package com.xin.rsaandaesdemo.Utils.Http;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
-import com.xin.rsaandaesdemo.Bean.User;
-import com.xin.rsaandaesdemo.Utils.Rsa;
+import com.xin.rsaandaesdemo.Utils.Encrypt.Aes.Aes;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -32,10 +31,11 @@ public class CustomGsonResponseBodyConverter<T> implements Converter<ResponseBod
     public T convert(ResponseBody value) throws IOException {
 
         String response = value.string();
+
         String result = null;
 
         try {
-            result = Rsa.decode(response);
+            result = Aes.decode(response);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ApiException("数据解密失败");
